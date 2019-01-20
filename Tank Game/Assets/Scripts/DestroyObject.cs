@@ -4,11 +4,11 @@ using UnityEngine;
 public class DestroyObject : MonoBehaviour
 {
 
-	public float LifetimeSeconds = 2;
+	public FloatData LifetimeSeconds;
 	
 	private IEnumerator Start()
 	{
-		yield return new WaitForSeconds(LifetimeSeconds);
+		yield return new WaitForSeconds(LifetimeSeconds.Value);
 		Destroy(gameObject);
 	}
 

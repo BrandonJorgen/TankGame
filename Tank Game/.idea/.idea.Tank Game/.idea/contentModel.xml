@@ -10,9 +10,11 @@
           <e p="CharacterMover.cs" t="Include" />
           <e p="DestroyObject.cs" t="Include" />
           <e p="FloatData.cs" t="Include" />
+          <e p="FloatDataValueCheck.cs" t="Include" />
           <e p="LookAtMouse.cs" t="Include" />
+          <e p="OnTriggerTagCheck.cs" t="Include" />
           <e p="PlayerInstantiate.cs" t="Include" />
-          <e p="ReloadTimeUpgradeScript.cs" t="Include" />
+          <e p="TriggerEventBehavior.cs" t="Include" />
           <e p="UpdatePlayerHealth.cs" t="Include" />
           <e p="ValueChange.cs" t="Include" />
         </e>
