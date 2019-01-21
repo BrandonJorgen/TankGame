@@ -9,6 +9,7 @@
         <e p="Scripts" t="Include">
           <e p="CharacterMover.cs" t="Include" />
           <e p="DestroyObject.cs" t="Include" />
+          <e p="EnemyAI.cs" t="Include" />
           <e p="FloatData.cs" t="Include" />
           <e p="FloatDataValueCheck.cs" t="Include" />
           <e p="LookAtMouse.cs" t="Include" />
