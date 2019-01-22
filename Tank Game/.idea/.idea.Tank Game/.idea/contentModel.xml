@@ -7,17 +7,22 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="BoolChange.cs" t="Include" />
+          <e p="BoolData.cs" t="Include" />
           <e p="CharacterMover.cs" t="Include" />
           <e p="DestroyObject.cs" t="Include" />
           <e p="EnemyAI.cs" t="Include" />
           <e p="FloatData.cs" t="Include" />
           <e p="FloatDataValueCheck.cs" t="Include" />
+          <e p="GameOverCondition.cs" t="Include" />
           <e p="LookAtMouse.cs" t="Include" />
           <e p="OnTriggerTagCheck.cs" t="Include" />
+          <e p="PauseGame.cs" t="Include" />
           <e p="PlayerInstantiate.cs" t="Include" />
           <e p="TriggerEventBehavior.cs" t="Include" />
           <e p="UpdatePlayerHealth.cs" t="Include" />
           <e p="ValueChange.cs" t="Include" />
+          <e p="ValueCheckEvent.cs" t="Include" />
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />
