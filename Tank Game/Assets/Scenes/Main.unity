@@ -4049,6 +4049,7 @@ GameObject:
   - component: {fileID: 2097618955}
   - component: {fileID: 2097618960}
   - component: {fileID: 2097618961}
+  - component: {fileID: 2097618962}
   m_Layer: 0
   m_Name: MediumEnemy
   m_TagString: Enemy
@@ -4222,6 +4223,29 @@ MonoBehaviour:
   - {fileID: 1858093214}
   - {fileID: 462169772}
   - {fileID: 1118534276}
+  MovingRight: 0
+  MovingLeft: 0
+  MovingUp: 0
+  MovingDown: 0
+--- !u!95 &2097618962
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097618954}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 199298ff124ed1c488deb1e159282677, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2114909946
 GameObject:
   m_ObjectHideFlags: 0
