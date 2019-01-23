@@ -22,46 +22,6 @@ public class PauseGame : MonoBehaviour
             {
                 Time.timeScale = 1; //game set back to playing
                 OnResume.Invoke();
-            } else if (UpgradeCount.Value > 0 && ReloadSpeedUpgrade.Bool)
-            {
-                Time.timeScale = 0;
-                OnPaused.Invoke();
-                ReloadSpeedPause.Invoke();
-            } else if (UpgradeCount.Value > 0 && RangeUpgrade.Bool)
-            {
-                Time.timeScale = 0;
-                OnPaused.Invoke();
-                RangePause.Invoke();
-            } else if (UpgradeCount.Value > 0 && DamageUpgrade.Bool)
-            {
-                Time.timeScale = 0;
-                OnPaused.Invoke();
-                DamagePause.Invoke();
-            } else if (UpgradeCount.Value > 0 && MovementSpeedUpgrade.Bool)
-            {
-                Time.timeScale = 0;
-                OnPaused.Invoke();
-                MovementSpeedPause.Invoke();
-            } else if (UpgradeCount.Value > 0 && ReloadSpeedUpgrade.Bool)
-            {
-                Time.timeScale = 1;
-                OnResume.Invoke();
-                ReloadSpeedResume.Invoke();
-            } else if (UpgradeCount.Value > 0 && RangeUpgrade.Bool)
-            {
-                Time.timeScale = 1;
-                OnResume.Invoke();
-                RangeResume.Invoke();
-            } else if (UpgradeCount.Value > 0 && DamageUpgrade.Bool)
-            {
-                Time.timeScale = 1;
-                OnResume.Invoke();
-                DamageResume.Invoke();
-            } else if (UpgradeCount.Value > 0 && MovementSpeedUpgrade.Bool)
-            {
-                Time.timeScale = 1;
-                OnResume.Invoke();
-                MovementSpeedResume.Invoke();
             }
         }
     }

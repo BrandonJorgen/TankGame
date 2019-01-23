@@ -19,10 +19,12 @@
           <e p="OnTriggerTagCheck.cs" t="Include" />
           <e p="PauseGame.cs" t="Include" />
           <e p="PlayerInstantiate.cs" t="Include" />
+          <e p="TextAndData.cs" t="Include" />
           <e p="TriggerEventBehavior.cs" t="Include" />
           <e p="UpdatePlayerHealth.cs" t="Include" />
           <e p="ValueChange.cs" t="Include" />
           <e p="ValueCheckEvent.cs" t="Include" />
+          <e p="VictoryCondition.cs" t="Include" />
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />
