@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class FloatDataValueCheck : MonoBehaviour
 {
     public FloatData DataValue;
-    public int Value;
+    public float Value;
     public UnityEvent ValueMatch;
     
     void Update()
