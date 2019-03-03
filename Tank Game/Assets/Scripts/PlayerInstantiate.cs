@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +10,11 @@ public class PlayerInstantiate : MonoBehaviour
 	private bool isReloading;
 	public FloatData ReloadTime;
 
+
+	private void Start()
+	{
+		CooldownImage = FindObjectOfType<Image>();
+	}
 
 	void Update()
 	{

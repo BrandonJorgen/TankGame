@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Shell
   - Enemy
+  - PlayerShell
+  - EnemyShell
+  - Portal
+  - Stage
+  - Cooldown
   layers:
   - Default
   - TransparentFX
