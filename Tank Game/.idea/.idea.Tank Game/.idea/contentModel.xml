@@ -11,11 +11,11 @@
           <e p="Conversation.cs" t="Include" />
           <e p="ConversationManager.cs" t="Include" />
           <e p="ConversationTrigger.cs" t="Include" />
-          <e p="DestroyObject.cs" t="Include" />
+          <e p="DestroyShell.cs" t="Include" />
+          <e p="DestroyShellEffect.cs" t="Include" />
           <e p="DontDelete.cs" t="Include" />
           <e p="EnemyBehavior.cs" t="Include" />
           <e p="FloatData.cs" t="Include" />
-          <e p="FloatDataValueCheck.cs" t="Include" />
           <e p="GameLogic.cs" t="Include" />
           <e p="GoScript.cs" t="Include" />
           <e p="LookAtMouse.cs" t="Include" />
@@ -28,9 +28,7 @@
           <e p="ShowGizmo.cs" t="Include" />
           <e p="StageChange.cs" t="Include" />
           <e p="StageLogic.cs" t="Include" />
-          <e p="StartButton.cs" t="Include" />
           <e p="TextAndData.cs" t="Include" />
-          <e p="TriggerEventBehavior.cs" t="Include" />
           <e p="UpdatePlayerHealth.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">

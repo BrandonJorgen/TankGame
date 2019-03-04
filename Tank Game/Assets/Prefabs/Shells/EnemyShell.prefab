@@ -136,3 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifetimeSeconds: {fileID: 11400000, guid: ff9bddb8525ef534f8b51325624cbd22, type: 2}
   ShellDamage: {fileID: 11400000, guid: 19632348f1fd46b429663a9802ef199a, type: 2}
+  Effect: {fileID: 736303933365067663, guid: 864ddcf1fcbb1fd47a3686e9ca1ace21, type: 3}

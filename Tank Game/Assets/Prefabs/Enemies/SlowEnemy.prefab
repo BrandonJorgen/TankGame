@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3693087531865232464}
   - component: {fileID: 1672019124321763211}
   - component: {fileID: 6554740185052618914}
-  - component: {fileID: 2756990036289904782}
   m_Layer: 0
   m_Name: TurretMesh
   m_TagString: Enemy
@@ -79,36 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &2756990036289904782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383357841933433838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843e8217c282d124e9c5cbe1ea9bab72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DataValue: {fileID: 11400000, guid: 1f121bfc6593c8c4194832f6acbf3b61, type: 2}
-  Value: 0
-  ValueMatch:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 383357841933433838}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &2122226700253207057
 GameObject:
   m_ObjectHideFlags: 0

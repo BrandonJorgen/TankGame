@@ -2,13 +2,6 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    //TODO *OPTIONAL* ADD TANK TRACKS THAT SLOWLY DISAPPEAR AFTER A FEW SECONDS
-        //Track previous position and current position
-        //Check for distance between the two
-        //If distance is greater than X, instantiate object
-            //Issue with this may be based on direction the player is facing
-            //Would need a system to determine what version of tracks to set based on said direction
-    
     public FloatData MoveSpeed;
     private float gravity = 9.81f;
     private CharacterController controller;
@@ -83,7 +76,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (other.collider.CompareTag("EnemyShell"))
         {
-            PlayerHealth.Value -= other.gameObject.GetComponent<DestroyObject>().ShellDamage.Value;
+            PlayerHealth.Value -= other.gameObject.GetComponent<DestroyShell>().ShellDamage.Value;
         }
     }
 }

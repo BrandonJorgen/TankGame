@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class DestroyObject : MonoBehaviour
+public class DestroyShell : MonoBehaviour
 {
-	//TODO *OPTIONAL* ADD ANIMATION FOR WHEN THE BULLET HITS SOMETHING
-
 	public FloatData LifetimeSeconds, ShellDamage;
+	public GameObject Effect;
 	
 	private IEnumerator Start()
 	{
 		yield return new WaitForSeconds(LifetimeSeconds.Value);
+		Instantiate(Effect, transform.position, Effect.transform.rotation);
 		Destroy(gameObject);
 	}
 
@@ -25,6 +25,7 @@ public class DestroyObject : MonoBehaviour
 			return;
 		}
 		
+		Instantiate(Effect, transform.position, Effect.transform.rotation);
 		Destroy(gameObject);
 	}
 }

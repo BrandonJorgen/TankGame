@@ -6,8 +6,6 @@ using UnityEngine.Events;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    //TODO *OPTIONAL* ADD TANK TRACKS THAT SLOWLY DISAPPEAR AFTER A FEW SECONDS
-    
     [Header("Enemy Health Settings")] 
     public FloatData MaxHits;
     public float CurrentHits;
@@ -167,7 +165,7 @@ public class EnemyBehavior : MonoBehaviour
             if (other.gameObject.CompareTag("PlayerShell")) //Did we get hit by a player shell
             {
                 //Add the floatdata value of the player shell to the current hit counter
-                CurrentHits += other.gameObject.GetComponent<DestroyObject>().ShellDamage.Value;
+                CurrentHits += other.gameObject.GetComponent<DestroyShell>().ShellDamage.Value;
             }
         }
 
