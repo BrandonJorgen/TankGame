@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [System.Serializable]
 public class Conversation
@@ -9,5 +7,4 @@ public class Conversation
     
     [TextArea(3, 5)]
     public string[] Sentences;
-    
 }

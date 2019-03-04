@@ -4,13 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class GameLogic : MonoBehaviour
 {
-    //TODO WE MAY RUN INTO ISSUES IF WE IMPLEMENT ANY OTHER MENU LIKE AN OPTIONS MENU WHILE PAUSED, SPECIFICALLY WHEN WE UNPAUSE WHILE IN THE OPTIONS MENU
-    //TODO NEED A WAY FOR THE GAME TO NOT CARE IF YOU WON UNLESS YOU HAD AN ACTUAL CHANCE TO FIGHT THE BOSS
-    
     [Header("Victory Settings")]
     public GameObject Boss;
     public UnityEvent BossKilled;
+    private bool bossSighted =false;
     [Header("Pause Game Settings")] 
+    public BoolData Paused;
+    public GameObject QuitMenu;
     public UnityEvent OnPaused;
     public UnityEvent OnResume;
     [Header("Game Over Settings")]
@@ -31,27 +31,52 @@ public class GameLogic : MonoBehaviour
     private void SceneChangeManagement(Scene scene, LoadSceneMode current)
     {
         player = GameObject.FindWithTag("Player");
+        Boss = GameObject.FindWithTag("Boss");
+
+        //Check if a boss even exists in the current Stage
+        if (Boss != null)
+        {
+            bossSighted = true;
+        }
+        else
+        {
+            bossSighted = false;
+        }
     }
 
     void Update()
     {
         //VICTORY BEHAVIOR
-        if (Boss.activeSelf == false)
+        if (bossSighted)//If Boss exists
         {
-            BossKilled.Invoke();
+            if (Boss.activeSelf == false)//If boss is dead
+            {
+                BossKilled.Invoke();
+            }
         }
         
         //PAUSE GAME BEHAVIOR
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Time.timeScale == 1)
+            if (Time.timeScale >= 1)
             {
                 Time.timeScale = 0; //game set to paused
+                Paused.Bool = true;
                 OnPaused.Invoke();
-            } else if (Time.timeScale == 0)
+            } 
+            else if (Time.timeScale <= 0)
             {
-                Time.timeScale = 1; //game set back to playing
-                OnResume.Invoke();
+                if (!QuitMenu.activeSelf)//The Quit Menu isn't active
+                {
+                    Time.timeScale = 1; //game set back to playing
+                    Paused.Bool = false;
+                    OnResume.Invoke();
+                }
+
+                if (QuitMenu.activeSelf)//The Quit Menu is active
+                {
+                    QuitMenu.SetActive(false);
+                }
             }
         }
         

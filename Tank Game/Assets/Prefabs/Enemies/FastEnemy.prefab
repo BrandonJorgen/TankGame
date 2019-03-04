@@ -190,6 +190,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   Shell: {fileID: 5332441350269110287, guid: 6f4eb6ee7dcb67d43bbc54e807920b66, type: 3}
+  ShellOrigin: {fileID: 5203382431566015852}
   ReloadSpeed: 1
   LostPlayer:
     m_PersistentCalls:
@@ -272,7 +273,6 @@ GameObject:
   - component: {fileID: 3807745970951146936}
   - component: {fileID: 3037254380170574239}
   - component: {fileID: 5542554658952053296}
-  - component: {fileID: 2508394811020726797}
   - component: {fileID: 8596537863646057208}
   m_Layer: 0
   m_Name: TurretMesh
@@ -341,19 +341,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2508394811020726797
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4752521203059023943}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8596537863646057208
 MonoBehaviour:
   m_ObjectHideFlags: 0

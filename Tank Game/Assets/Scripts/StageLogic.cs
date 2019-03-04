@@ -3,13 +3,16 @@ using UnityEngine.Events;
 
 public class StageLogic : MonoBehaviour
 {
-    //TODO *OPTIONAL* AUTOMATICALLY ADD ANY ENEMIES DETECTED ON THE STAGE TO THE ENEMIES ARRAY USING QUEUE
-    
     public GameObject[] Enemies;
     public bool StageCleared = false;
     public UnityEvent StageClearedEvent;
     private bool eventExecuted = false;
-    
+
+    private void Start()
+    {
+        Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+    }
+
     void Update()
     {
         if (Enemies.Length > 0)

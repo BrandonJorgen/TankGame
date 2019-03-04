@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class ConversationManager : MonoBehaviour
 {
-    //TODO WHAT IF THE PLAYER CHANGES STAGES DURING A CONVERSATION
-        //My assumption is that since the gameobject with the trigger assigned to it will be deleted, the convo will just stop
-    //TODO IF STATEMENTS BASED ON THE NAME OF THE PERSON TALKING AND TOGGLING CERTAIN BOOLS TO DECIDE WHAT IMAGE TO USE
     //THIS CLASS HANDLES SHOWING AND MOVING TO THE NEXT LINE OF THE CONVERSATION
 
     public TextMeshProUGUI NameText;
@@ -17,6 +15,22 @@ public class ConversationManager : MonoBehaviour
     public float AutoProceed = 3;
     private bool animationFinished;
     private Queue<string> sentences;
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += SceneChangeManagement;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneChangeManagement;
+    }
+
+    private void SceneChangeManagement(Scene scene, LoadSceneMode current)
+    {
+        Animator.SetBool("NewStage", true);
+        Animator.SetBool("IsActive", false);
+    }
     
     void Start()
     {
@@ -25,15 +39,16 @@ public class ConversationManager : MonoBehaviour
 
     public void StartConversation(Conversation dialogue)
     {
-        Debug.Log("Starting Conversation with: " + dialogue.Name);
         NameText.text = dialogue.Name;
+        ConversationText.text = "";
+        Animator.SetBool("NewStage", false);
         sentences.Clear();//Clear all sentences just in case ones from a previous conversation still exist
 
         foreach (string sentence in dialogue.Sentences)
         {
             sentences.Enqueue(sentence);
         }
-
+        
         Animator.SetBool("IsActive", true);
     }
 
@@ -68,7 +83,6 @@ public class ConversationManager : MonoBehaviour
             ConversationText.text += letter;
             yield return null;
         }
-        Debug.Log(sentence);
         StartCoroutine(ConvoProceed());
     }
 

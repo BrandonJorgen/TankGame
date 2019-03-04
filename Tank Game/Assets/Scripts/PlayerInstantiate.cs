@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class PlayerInstantiate : MonoBehaviour
 {
-
 	public GameObject Instance;
 	public Image CooldownImage;
+	public BoolData GamePaused;
 	private bool isReloading;
 	public FloatData ReloadTime;
 
@@ -18,16 +18,19 @@ public class PlayerInstantiate : MonoBehaviour
 
 	void Update()
 	{
-		if (!isReloading && Input.GetMouseButtonDown(0))
+		if (!GamePaused.Bool)
 		{
-			Instantiate(Instance, transform.position, transform.rotation);
-			CooldownImage.fillAmount = 1;
-			StartCoroutine(ReloadCycle());
-		}
+			if (!isReloading && Input.GetMouseButtonDown(0))
+			{
+				Instantiate(Instance, transform.position, transform.rotation);
+				CooldownImage.fillAmount = 1;
+				StartCoroutine(ReloadCycle());
+			}
 
-		if (isReloading)
-		{
-			CooldownImage.fillAmount -= ReloadTime.Value * Time.deltaTime;
+			if (isReloading)
+			{
+				CooldownImage.fillAmount -= (1 / ReloadTime.Value) * Time.deltaTime;
+			}
 		}
 	}
 

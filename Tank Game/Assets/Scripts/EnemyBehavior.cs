@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class EnemyBehavior : MonoBehaviour
 {
-//TODO NEED SECTION FOR SPRITE ANIMATION
+    //TODO *OPTIONAL* ADD TANK TRACKS THAT SLOWLY DISAPPEAR AFTER A FEW SECONDS
     
     [Header("Enemy Health Settings")] 
     public FloatData MaxHits;
@@ -30,6 +30,7 @@ public class EnemyBehavior : MonoBehaviour
 
     [Header("Attack Settings")] 
     public GameObject Shell;
+    public Transform ShellOrigin;
     public float ReloadSpeed = 1f;
     private bool isAttacking;
     public UnityEvent LostPlayer;
@@ -43,6 +44,7 @@ public class EnemyBehavior : MonoBehaviour
     private int destinationPoint = 0;//Starting point for Locations array
     private Vector3 originPosition;
     private float originRotationY;
+    private Animator animator;
 
 
     private void OnDrawGizmosSelected()
@@ -62,6 +64,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         originPosition = transform.position;//Grabs the position the enemy spawns at
         originRotationY = transform.eulerAngles.y;//Grabs the angle the enemy spawns at
         
@@ -132,6 +135,31 @@ public class EnemyBehavior : MonoBehaviour
                 }
             }
         }
+        
+        //Animation Code
+        if (agent.velocity.x < 0)//Moving Left
+        {
+            animator.SetBool("MovingLeft", true);
+            animator.SetBool("MovingRight", false);
+        }
+
+        if (agent.velocity.x > 0)//Moving Right
+        {
+            animator.SetBool("MovingLeft", false);
+            animator.SetBool("MovingRight", true);
+        }
+
+        if (agent.velocity.z < 0)//Moving Down
+        {
+            animator.SetBool("MovingDown", true);
+            animator.SetBool("MovingUp", false);
+        }
+
+        if (agent.velocity.z > 0)//Moving Up
+        {
+            animator.SetBool("MovingDown", false);
+            animator.SetBool("MovingUp", true);
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -185,6 +213,7 @@ public class EnemyBehavior : MonoBehaviour
                 //Setting the last position the enemy saw the player at
                 if (gameObject.activeSelf && lastKnownHit.transform.CompareTag("Player"))
                 {
+                    agent.speed = Speed;
                     lastKnownPosition = lastKnownHit.point;
                 }
                 
@@ -245,8 +274,7 @@ public class EnemyBehavior : MonoBehaviour
         if (!isReloading)
         {
             //May end of changing this depending on how I set up sprites
-            Instantiate(Shell, transform.GetChild(0).GetChild(0).GetChild(0).position,
-                transform.GetChild(0).GetChild(0).GetChild(0).rotation);
+            Instantiate(Shell, ShellOrigin.position, ShellOrigin.rotation);
             StartCoroutine(Reloading());
         }
 

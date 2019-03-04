@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 1814166102787344952}
   - component: {fileID: 1814166102787344932}
   - component: {fileID: 1814166102787344959}
+  - component: {fileID: 265575701002568909}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -231,6 +232,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: {fileID: 11400000, guid: 951a54b704b7d0849a9fc34bca4856b3, type: 2}
   PlayerHealth: {fileID: 11400000, guid: 8449c5e1ef78050468b5a6e65e7a201b, type: 2}
+--- !u!95 &265575701002568909
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814166102787344958}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bdbaa6ff64fb19845bfd28b7a44e2757, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1814166103025164134
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,4 +297,5 @@ MonoBehaviour:
   Instance: {fileID: 8770865977320656822, guid: 743af812c942b3a4887f0c9a919e25a4,
     type: 3}
   CooldownImage: {fileID: 0}
+  GamePaused: {fileID: 11400000, guid: baeab07771ebc31419674ef83deb29b9, type: 2}
   ReloadTime: {fileID: 11400000, guid: f3af346e64caef644842b7245f4191d9, type: 2}

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99e52d628c560ba42adfadb77b41bf4a, type: 3}
-  m_Name: PlayerHealth
+  m_Script: {fileID: 11500000, guid: 92b72320247ba2b439a22a15248dea36, type: 3}
+  m_Name: GamePaused
   m_EditorClassIdentifier: 
-  Value: 1e+23
+  Bool: 0

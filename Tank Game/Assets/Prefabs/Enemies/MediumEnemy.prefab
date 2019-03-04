@@ -72,11 +72,10 @@ GameObject:
   - component: {fileID: 1661079582114601663}
   - component: {fileID: 1661079582114601660}
   - component: {fileID: 1661079582114601661}
-  - component: {fileID: 1661079582114601634}
   - component: {fileID: 1661079582114601635}
   m_Layer: 0
   m_Name: TurretMesh
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,19 +140,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1661079582114601634
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1661079582114601632}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1661079582114601635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +184,7 @@ GameObject:
   - component: {fileID: 1661079583093951489}
   - component: {fileID: 1661079583093951494}
   - component: {fileID: 1661079583093951517}
+  - component: {fileID: 7685337096198599672}
   - component: {fileID: 1661079583093951516}
   m_Layer: 0
   m_Name: MediumEnemy
@@ -314,6 +301,25 @@ NavMeshAgent:
   m_BaseOffset: 0.49999997
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &7685337096198599672
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661079583093951495}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 199298ff124ed1c488deb1e159282677, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1661079583093951516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,7 +380,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   Shell: {fileID: 5332441350269110287, guid: 6f4eb6ee7dcb67d43bbc54e807920b66, type: 3}
-  ReloadSpeed: 1
+  ShellOrigin: {fileID: 1661079582107032008}
+  ReloadSpeed: 2
   LostPlayer:
     m_PersistentCalls:
       m_Calls: []
