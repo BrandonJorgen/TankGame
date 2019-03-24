@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public BoolData ControllerActive;
     public FloatData MoveSpeed;
     private float gravity = 9.81f;
     private CharacterController controller;
@@ -20,6 +21,17 @@ public class PlayerScript : MonoBehaviour
         position.Set(MoveSpeed.Value * Input.GetAxisRaw("Horizontal"), 0, MoveSpeed.Value * Input.GetAxisRaw("Vertical"));
         position = transform.TransformDirection(position);
         position.y -= gravity * Time.deltaTime;
+
+        //Code so a scriptable object controls if the character controller is enabled or not
+        if (ControllerActive.Bool)
+        {
+            controller.enabled = true;
+        }
+        else
+        {
+            controller.enabled = false;
+        }
+        
         if (controller.enabled)
         {
             controller.Move(position * Time.deltaTime);

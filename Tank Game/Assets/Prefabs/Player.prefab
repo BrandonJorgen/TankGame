@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dbae964df2504d48b25ecb45372d1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ControllerActive: {fileID: 11400000, guid: 7781215d7288a894a8f95bdec280c1b0, type: 2}
   MoveSpeed: {fileID: 11400000, guid: 951a54b704b7d0849a9fc34bca4856b3, type: 2}
   PlayerHealth: {fileID: 11400000, guid: 8449c5e1ef78050468b5a6e65e7a201b, type: 2}
 --- !u!95 &265575701002568909

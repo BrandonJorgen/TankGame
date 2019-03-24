@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class StageLogic : MonoBehaviour
+public class StageLogicKillAll : MonoBehaviour
 {
     public GameObject[] Enemies;
     public bool StageCleared = false;

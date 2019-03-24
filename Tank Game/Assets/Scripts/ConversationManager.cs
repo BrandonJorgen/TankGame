@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ConversationManager : MonoBehaviour
 {
@@ -11,9 +11,12 @@ public class ConversationManager : MonoBehaviour
 
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI ConversationText;
+    public Image PortraitImage;
+    public Sprite UnknownPortrait, GeneralPortrait;
     public Animator Animator;
-    public float AutoProceed = 3;
-    private bool animationFinished;
+    public float AutoProceed = 3, StartConvoDelay;
+    public BoolData ControllerActive;
+    private bool animationFinished, CutsceneHappening;
     private Queue<string> sentences;
 
     private void OnEnable()
@@ -34,6 +37,7 @@ public class ConversationManager : MonoBehaviour
     
     void Start()
     {
+        PortraitImage.sprite = UnknownPortrait;
         sentences = new Queue<string>();
     }
 
@@ -41,6 +45,17 @@ public class ConversationManager : MonoBehaviour
     {
         NameText.text = dialogue.Name;
         ConversationText.text = "";
+        if (dialogue.IsCutscene)//Current Loaded conversation is a cutscene
+        {
+            CutsceneHappening = true;
+            ControllerActive.Bool = false;
+        }
+        else//Current Loaded conversation is not a cutscene
+        {
+            CutsceneHappening = false;
+            ControllerActive.Bool = true;
+        }
+        
         Animator.SetBool("NewStage", false);
         sentences.Clear();//Clear all sentences just in case ones from a previous conversation still exist
 
@@ -48,8 +63,20 @@ public class ConversationManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
+
+        //TODO This code will need to be changed when characters get actual names along with expanding based on the number of NPCs that talk
+        //Portrait Selection Code
+        if (NameText.text == "General")
+        {
+            PortraitImage.sprite = GeneralPortrait;
+        }
+        else
+        {
+            PortraitImage.sprite = UnknownPortrait;
+        }
         
-        Animator.SetBool("IsActive", true);
+        Animator.SetBool("NewStage", false);
+        Animator.SetBool("IsActive", true);//Begin popup animation
     }
 
     public void NextSentence()
@@ -68,10 +95,20 @@ public class ConversationManager : MonoBehaviour
         }
     }
 
-    void AnimationComplete()
+    void ActiveAnimationComplete()//Runs after the activation popup anim finishes
     {
         animationFinished = true;
         NextSentence();
+    }
+    
+    void DeactiveAnimationComplete()
+    {
+        animationFinished = true;
+        
+        if (animationFinished)
+        {
+            ControllerActive.Bool = true;//General catch-all to make sure the play controller is active, end of cutscene or not
+        }
     }
 
     IEnumerator DisplayText(string sentence)

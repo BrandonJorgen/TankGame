@@ -27,7 +27,8 @@
           <e p="PortalScript.cs" t="Include" />
           <e p="ShowGizmo.cs" t="Include" />
           <e p="StageChange.cs" t="Include" />
-          <e p="StageLogic.cs" t="Include" />
+          <e p="StageLogicGoTo.cs" t="Include" />
+          <e p="StageLogicKillAll.cs" t="Include" />
           <e p="TextAndData.cs" t="Include" />
           <e p="UpdatePlayerHealth.cs" t="Include" />
         </e>

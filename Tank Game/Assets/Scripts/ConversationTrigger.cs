@@ -7,13 +7,16 @@ public class ConversationTrigger : MonoBehaviour
 {
     //SET THIS SCRIPT ON WHATEVER YOU WANT TO USE TO START THE CONVERSATION
     public Conversation Dialogue;
-    [Space(10)]
-    public UnityEvent Portrait;
 
     public void TriggerConversation()
     {
+        StartCoroutine(Delay());
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(Dialogue.Delay);
         FindObjectOfType<ConversationManager>().StartConversation(Dialogue);
-        Portrait.Invoke();
-        //Don't forget to activate only the portrait of the person speaking and disable everyone else
     }
 }
+//TODO Last time on Tankgame-Z, you were trying to add a optional delay to the conversation system
