@@ -8,16 +8,20 @@ public class OnTriggerTagCheck : MonoBehaviour
 	public string TagName;
 	public UnityEvent OnTriggerenter;
 	
-	// Use this for initialization
-	void Start () {
-		
-	}
+	[Tooltip("The number of times the event is allowed to go off")]
+	public float RepeatMax = 1;
+
+	private float repeatCount;
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == TagName)
+		if (repeatCount < RepeatMax)
 		{
-			OnTriggerenter.Invoke();
+			if (other.gameObject.tag == TagName)
+			{
+				OnTriggerenter.Invoke();
+				repeatCount++;
+			}
 		}
 	}
 }

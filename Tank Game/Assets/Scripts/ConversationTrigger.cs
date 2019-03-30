@@ -10,13 +10,6 @@ public class ConversationTrigger : MonoBehaviour
 
     public void TriggerConversation()
     {
-        StartCoroutine(Delay());
-    }
-
-    IEnumerator Delay()
-    {
-        yield return new WaitForSeconds(Dialogue.Delay);
         FindObjectOfType<ConversationManager>().StartConversation(Dialogue);
     }
 }
-//TODO Last time on Tankgame-Z, you were trying to add a optional delay to the conversation system

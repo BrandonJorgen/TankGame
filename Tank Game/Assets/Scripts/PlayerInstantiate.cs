@@ -10,10 +10,9 @@ public class PlayerInstantiate : MonoBehaviour
 	private bool isReloading;
 	public FloatData ReloadTime;
 
-
 	private void Start()
 	{
-		CooldownImage = FindObjectOfType<Image>();
+		CooldownImage = GameObject.FindWithTag("Cooldown").GetComponent<Image>();
 	}
 
 	void Update()

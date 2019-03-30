@@ -3,10 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class StageChange : MonoBehaviour
 {
-    public GameObject NextStageTrigger, Stage;
+    public GameObject NextStageTrigger, StageLogic;
     public BoolData ControllerActive;
     public Animator animator;
     public int NextSceneToLoad;
+    private bool isGoTo, isKillAll;
     
     private void OnEnable()
     {
@@ -21,39 +22,59 @@ public class StageChange : MonoBehaviour
 
     private void SceneChangeManagement(Scene scene, LoadSceneMode current)
     {
-        NextStageTrigger = GameObject.FindWithTag("Portal");
-        NextStageTrigger.gameObject.GetComponent<Collider>().isTrigger = true;
-        Stage = GameObject.FindWithTag("Stage");
+        NextStageTrigger = GameObject.FindWithTag("Portal");//Finds Next Level Trigger in current scene
+        if (NextStageTrigger != null)
+        {
+            NextStageTrigger.gameObject.GetComponent<Collider>().isTrigger = true;//Makes sure the Trigger is actually a trigger
+        }
+        else
+        {
+            return;
+        }
+        
+        StageLogic = GameObject.FindWithTag("Stage");//Finds Stage Logic in current scene
+        
+        if (StageLogic == null)
+        {
+            Debug.Log("No Stage Logic is present, Please add one to the current scene");
+        }
+
+        //Add to this list to add additional Stage Logic Objectives
+        if (StageLogic.GetComponent<StageLogicGoTo>() != null)
+        {
+            isGoTo = true;
+        }
+        
+        if (StageLogic.GetComponent<StageLogicKillAll>() != null)
+        {
+            isKillAll = true;
+        }
+        
         animator.SetBool("IsChanging", false);
         NextSceneToLoad = NextStageTrigger.GetComponent<PortalScript>().NextLevel;
     }
 
     private void Update()
     {
-        //TODO You may need to expand this with the addition of different level objectives
-        if (Stage.name == "StageLogicKillAll")//Kill All Stage logic detected in scene
+        //Add to this list to add additional Stage Logic Objectives
+        if (isGoTo && NextStageTrigger.GetComponent<PortalScript>().isTriggered)
         {
-            if (Stage.GetComponent<StageLogicKillAll>().StageCleared && NextStageTrigger.GetComponent<PortalScript>().isTriggered)
-            {
-                //All enemies are dead and the player is inside the next stage trigger box
-                ControllerActive.Bool = false;//Disable player controls
-                animator.SetBool("IsChanging", true);//Fade out
-            }
+            //All enemies are dead and the player is inside the next stage trigger box
+            ControllerActive.Bool = false;//Disable player controls
+            animator.SetBool("IsChanging", true);//Fade out
         }
-
-        if (Stage.name == "StageLogicGoTo")//Go To Stage logic detected in scene
+        
+        if (isKillAll && NextStageTrigger.GetComponent<PortalScript>().isTriggered)
         {
-            if (Stage.GetComponent<StageLogicGoTo>().StageCleared && NextStageTrigger.GetComponent<PortalScript>().isTriggered)
-            {
-                //Player has reached destination and is inside the next stage trigger box
-                ControllerActive.Bool = false;//Disable player controls
-                animator.SetBool("IsChanging", true);//Fade out
-            }
+            //All enemies are dead and the player is inside the next stage trigger box
+            ControllerActive.Bool = false;//Disable player controls
+            animator.SetBool("IsChanging", true);//Fade out
         }
     }
 
     void FadeOutFinished()//Executes at the end of the FadeOut animation using an animation event
     {
+        
         SceneManager.LoadScene(NextSceneToLoad);
     }
 
