@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4718685385378273935}
   m_Layer: 0
   m_Name: TurretMesh
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,7 +292,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   Range: 10
-  FiringRange: 8
+  FiringRange: 10
   PlayerSighted:
     m_PersistentCalls:
       m_Calls: []

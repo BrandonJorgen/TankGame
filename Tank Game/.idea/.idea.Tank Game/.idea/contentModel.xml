@@ -31,7 +31,9 @@
           <e p="StageLogicGoTo.cs" t="Include" />
           <e p="StageLogicKillAll.cs" t="Include" />
           <e p="StageLogicShootTarget.cs" t="Include" />
+          <e p="TentScript.cs" t="Include" />
           <e p="TextAndData.cs" t="Include" />
+          <e p="Tutorial04Script.cs" t="Include" />
           <e p="UpdatePlayerHealth.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">

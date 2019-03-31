@@ -974,6 +974,7 @@ GameObject:
   - component: {fileID: 1023403480}
   - component: {fileID: 1023403481}
   - component: {fileID: 1023403479}
+  - component: {fileID: 1023403482}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -1081,6 +1082,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1023403482}
+        m_MethodName: TriggerConversation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!4 &1023403480
@@ -1109,6 +1121,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f8a611fc98ae3408155996959d3fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1023403482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023403478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e275aa764eb2ec41b99ec5f0414f1bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Dialogue:
+    Name: General
+    Sentences:
+    - player?
+    - Player!
+    - PLAAAAAYER!
+    IsCutscene: 0
+    Delay: 1
 --- !u!4 &1038590075 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 122365233681399076, guid: ace2315f6deeda84a9cbab2072277371,
@@ -1192,41 +1224,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 7.6822963
       objectReference: {fileID: 0}
-    - target: {fileID: 8975486937396596233, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
-        type: 3}
-      propertyPath: Dialogue.Sentences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8975486937396596233, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
-        type: 3}
-      propertyPath: Dialogue.Name
-      value: General
-      objectReference: {fileID: 0}
-    - target: {fileID: 8975486937396596233, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
-        type: 3}
-      propertyPath: Dialogue.IsCutscene
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8975486937396596233, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
-        type: 3}
-      propertyPath: Dialogue.Sentences.Array.data[0]
-      value: your mom
-      objectReference: {fileID: 0}
-    - target: {fileID: 8975486937396596233, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
-        type: 3}
-      propertyPath: Dialogue.StartDelay
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8975486937396596233, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
-        type: 3}
-      propertyPath: StartDelay
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 8975486937396596233, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
-        type: 3}
-      propertyPath: Dialogue.Delay
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8975486937396596232, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
         type: 3}
       propertyPath: OnTriggerenter.m_PersistentCalls.m_Calls.Array.size
@@ -1265,6 +1262,41 @@ PrefabInstance:
     - target: {fileID: 8975486937396596232, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
         type: 3}
       propertyPath: RepeatMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975486937396596233, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
+        type: 3}
+      propertyPath: Dialogue.Sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975486937396596233, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
+        type: 3}
+      propertyPath: Dialogue.Name
+      value: General
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975486937396596233, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
+        type: 3}
+      propertyPath: Dialogue.IsCutscene
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975486937396596233, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
+        type: 3}
+      propertyPath: Dialogue.Sentences.Array.data[0]
+      value: your mom
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975486937396596233, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
+        type: 3}
+      propertyPath: Dialogue.StartDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975486937396596233, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
+        type: 3}
+      propertyPath: StartDelay
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975486937396596233, guid: 0f704bbb37cd8874dbf40b0c9033dfae,
+        type: 3}
+      propertyPath: Dialogue.Delay
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

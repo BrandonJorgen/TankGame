@@ -34,7 +34,9 @@ public class EnemyBehavior : MonoBehaviour
     public UnityEvent LostPlayer;
 
     [Header("Patrol Settings")] 
+    [Tooltip("How fast the enemy moves, 0 = no movement")]
     public float Speed = 3.5f;
+    [Tooltip("How fast the enemy returns to last location before seeing player")]
     public float ReturnSpeed = 1.75f;
     public bool WillPatrol = false;//Only here so I can see if it patrols in the inspector
     public Transform[] Locations;//List of waypoints along the patrol route

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class OnTriggerTagCheck : MonoBehaviour
 {
 	public string TagName;
-	public UnityEvent OnTriggerenter;
+	public UnityEvent OnTriggerenter, OnTriggerexit;
 	
 	[Tooltip("The number of times the event is allowed to go off")]
 	public float RepeatMax = 1;
@@ -22,6 +22,14 @@ public class OnTriggerTagCheck : MonoBehaviour
 				OnTriggerenter.Invoke();
 				repeatCount++;
 			}
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject.tag == TagName)
+		{
+			OnTriggerexit.Invoke();
 		}
 	}
 }
